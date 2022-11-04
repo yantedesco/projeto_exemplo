@@ -1,4 +1,5 @@
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const CardComponent = (props) => {
   return (
@@ -7,6 +8,7 @@ export const CardComponent = (props) => {
       <Card.Body>
         <Card.Title>{props.nome}</Card.Title>
         <Card.Text>{props.valor}</Card.Text>
+        <Link to={`/produto/${props.id}`}>Detalhe</Link>
       </Card.Body>
     </Card>
   );
