@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { CardComponent } from "./components/Card";
-import { api } from "../../api";
 import { DataContext } from "../../context/data";
+import { api } from "../../api";
 
 export const Home = () => {
   const [produtos, setProdutos] = useState([]);
@@ -12,15 +12,16 @@ export const Home = () => {
     const getDados = async () => {
       try {
         const response = await api.get("/produto");
+        console.log(response);
         setProdutos(response.data);
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.log(err);
       }
     };
     getDados();
   }, []);
 
-  console.log(nome);
+  console.log(produtos);
 
   return (
     <main className="py-3">
